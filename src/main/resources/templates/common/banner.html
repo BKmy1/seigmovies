@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: commontop">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="banner" th:fragment="banner">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li th:each="b,i:${bannerList}" data-target="#carouselExampleIndicators" th:attr="data-slide-to=${i.index}"
+                th:class="${i.index == 0} ? 'active'"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item" th:each="banner,stat:${bannerList}"
+                 th:classappend="${stat.index ==0}?'active'">
+                <a href="#"><img th:src="${banner.url}" class="d-block w-100" th:alt="${banner.title}"></a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </button>
+    </div>
+</div>
+</body>
+</html>

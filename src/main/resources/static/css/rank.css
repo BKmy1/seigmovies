@@ -1,0 +1,173 @@
+.rank-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+ul li {
+    margin-top: 20px;
+}
+
+
+.rank-week {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.rank-week-title {
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.rank-week-title .more {
+    font-size: 14px;
+    color: #999999;
+}
+
+.week {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.weekItem .sort {
+    display: inline-block;
+    text-align: center;
+    margin-left: 20px;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.weekItem .name {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 20px;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.weekItem .status {
+    float: right;
+    line-height: 20px;
+    margin-right: 50px;
+    color: #ff0000;
+}
+
+.rank-month {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.rank-month-title {
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.rank-month-title .more {
+    font-size: 14px;
+    color: #999999;
+}
+
+.month {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.monthItem .sort {
+    display: inline-block;
+    text-align: center;
+    margin-left: 20px;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.monthItem .name {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 20px;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.monthItem .status {
+    float: right;
+    line-height: 20px;
+    margin-right: 50px;
+    color: #ff0000;
+}
+
+.rank-year {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.rank-year-title .more {
+    font-size: 14px;
+    color: #999999;
+}
+
+.year {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rank-year-title {
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.yearItem .sort {
+    display: inline-block;
+    text-align: center;
+    margin-left: 20px;
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.yearItem .name {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 20px;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.yearItem .status {
+    float: right;
+    line-height: 20px;
+    margin-right: 50px;
+    color: #ff0000;
+}

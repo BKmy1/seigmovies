@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<body>
+    <div class="register-container" th:fragment="register">
+        <div class="register-form">
+            <div class="register-form-title">注册看视频</div>
+            <form class="register-form-box" th:action="@{/register/doRegister}" method="post">
+                <i class="account-icon"></i><input type="text" class="username" name="username" placeholder="请输入用户名">
+                <i class="password-icon"></i><input type="password" class="password" name="password" placeholder="请输入密码">
+                <div class="verifyDiv"><i class="verify-icon"></i><input type="text" placeholder="请输入验证码" id="verifyCode" name="code" class="verifyCode">
+                    <span class="codeText"><img src="/register/getCode" id="codeImg" onclick="refresh()"></span></div>
+                    <div style="display: inline-block;height:40px;margin-bottom: 20px">
+                        <input type="radio" name="role" value="admin" checked> 管理员
+                        <input type="radio" name="role" value="user"> 游客
+                    </div>
+<!--                <p th:if="${codeMsg}!=null && ${code} eq '1'">-->
+<!--                    <span th:text="${codeMsg}" style="color: #ff0000;"></span>-->
+<!--                </p>-->
+                <button type="submit" class="btn btn-primary">注册</button>
+            </form>
+            <script type="text/javascript">
+                function refresh() {
+                    document.getElementById("codeImg").src = "getCode?time=" + new Date().getTime();
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

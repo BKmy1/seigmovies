@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="UTF-8">
+    <title>看视频</title>
+    <div th:replace="common/header :: commontop"></div>
+    <link rel="stylesheet" th:href="@{/css/tags.css}"/>
+    <link rel="stylesheet" th:href="@{/css/video.css}"/>
+    <link rel="stylesheet" th:href="@{/css/footer.css}"/>
+    <div th:replace="common/bootjs :: bootjs"></div>
+</head>
+<body>
+<!--头部公共部分-->
+<div th:replace="common/header :: commonContext"></div>
+<div th:replace="common/header :: commonNav"></div>
+<!--中间部分代码-->
+<!--热门标签-->
+<div th:replace="common/tags :: tags"></div>
+<!--全部视频-->
+<div th:replace="video/type/type :: type"></div>
+<!--页脚部分-->
+<div th:replace="common/footer :: footer"></div>
+</body>
+</html>

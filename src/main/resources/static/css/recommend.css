@@ -1,0 +1,81 @@
+.recommend-container {
+    margin-top: 20px;
+    padding-left: 80px;
+}
+
+.hot-recommend-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.recommendDataList {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.recommendItem {
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+}
+
+.recommendImg {
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    transition: all ease-out .35s;
+}
+
+.recommendImg:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.recommendImg .praise {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #ffffff;
+    background-color: #322925;
+    border: 1px solid #322925;
+    opacity: 0.9;
+}
+
+.recommendImg .status {
+    position: absolute;
+    color: #ffffff;
+    margin-left: -40px;
+    margin-bottom: 10px;
+    background-color: #322925;
+    border: 1px solid #322925;
+    opacity: 0.9;
+    bottom: 0;
+}
+
+.recommendImg img {
+    width: 180px;
+    height: 240px;
+    border-radius: 5%;
+}
+
+
+.recommendTitle {
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: bold;
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.recommendActors {
+    width: 180px;
+    font-size: 12px;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

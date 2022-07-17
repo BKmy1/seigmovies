@@ -1,0 +1,118 @@
+
+.video-detail-topvideo {
+    background-color: #666666;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.video-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    background-color: #1f1f1f;
+    margin-left: 40px;
+    padding-bottom: 20px;
+}
+
+/*控制视频播放器*/
+#dplayer {
+    display: inline-flex;
+    padding-top: 20px;
+    width: 820px;
+    height: 600px;
+}
+
+
+/*控制视频播放集数*/
+.video-detail-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-detail-top {
+    display: inline-block;
+    color: #ffffff;
+    height: 100px;
+    line-height: 60px;
+    font-size: 25px;
+}
+
+.video-title {
+    display: inline-block;
+    width: 180px;
+    margin-top: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.video-grade {
+    display: inline-block;
+}
+
+.video-detail-des {
+    display: inline-block;
+    width: 200px;
+    height:40px;
+    line-height:40px;
+    color:#00bbff;
+    background-color: #ffffff;
+    border-radius: 7%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-detail-center {
+    display: inline-block;
+    margin-left: -60px;
+}
+
+.video-playlist {
+    display: inline-flex;
+    width: 350px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.video-playlist li {
+    width: 60px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #373737;
+    text-align: center;
+    border-radius: 5%;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.video-playlist li a {
+    color:#ffffff;
+    font-size: 20px;
+}
+
+.video-detail-video {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.video-title-video {
+    font-size: 20px;
+}
+
+.vdescription {
+    display: inline-block;
+    margin-top: 20px;
+    width:300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.vdetail {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+}

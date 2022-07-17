@@ -1,0 +1,62 @@
+.hot-tags-container {
+    background-color: #f5f5f5;
+    margin-top: 20px;
+    margin-left: 80px;
+    width: 90%;
+}
+
+.hot-tags-title {
+    margin-left: 20px;
+    padding-top: 30px;
+    font-size: 25px;
+}
+.hot-tags-title .title{
+    margin-left: 20px;
+    padding-top: 30px;
+    font-size: 25px;
+}
+
+.hot-tags-title .packup {
+    float: right;
+    font-size: 15px;
+    margin-right: 50px;
+}
+
+.hot-tags-title .packon {
+    display: none;
+    float: right;
+    font-size: 15px;
+    margin-right: 50px;
+}
+
+
+.hot-tags-years {
+    display: inline-block;
+}
+
+.hot-tags-year-info li{
+    float: left;
+    margin-top: 20px;
+    padding-left: 20px;
+    line-height: 40px;
+}
+
+.years {
+    color: #999999;
+    font-size: 15px;
+}
+
+.hot-tags-type {
+    display: inline-block;
+}
+
+.types {
+    color: #999999;
+    font-size: 15px;
+}
+
+.hot-tags-type-info li {
+    float: left;
+    padding-left: 15px;
+    line-height: 40px;
+}

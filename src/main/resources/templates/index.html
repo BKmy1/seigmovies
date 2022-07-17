@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="UTF-8">
+    <title>看视频</title>
+    <div th:replace="common/header :: commontop"></div>
+    <link rel="stylesheet" th:href="@{/css/recommend.css}"/>
+    <link rel="stylesheet" th:href="@{/css/lastest.css}"/>
+    <link rel="stylesheet" th:href="@{/css/best.css}"/>
+    <link rel="stylesheet" th:href="@{/css/hotMessage.css}"/>
+    <link rel="stylesheet" th:href="@{/css/footer.css}"/>
+    <div th:replace="common/bootjs :: bootjs"></div>
+</head>
+<body>
+<!--头部公共部分-->
+<div th:replace="common/header :: commonContext"></div>
+<div th:replace="common/header :: commonNav"></div>
+<!--轮播图代码-->
+<div th:replace="common/banner :: banner"></div>
+<!--中间部分代码-->
+<!--热门推荐-->
+<div th:replace="video/recommend :: hotRecommend"></div>
+<!--最近更新-->
+<div th:replace="video/lastest :: lastest"></div>
+<!--精品推荐-->
+<div th:replace="video/best :: best"></div>
+<!--热门资讯-->
+<div th:replace="video/hotMessage :: hotMessage"></div>
+<!--页脚部分-->
+<div th:replace="common/footer :: footer"></div>
+<!--<div th:replace="common/bootjs :: bootjs"></div>-->
+</body>
+</html>

@@ -1,0 +1,91 @@
+.login-container {
+    background-color: #f5f5f5;
+}
+
+.login-form {
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: 27%;
+    padding: 20px 15px;
+    width: 600px;
+    height: 500px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.login-form-title {
+    font-size: 25px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.login-form-box {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.login-form-box input {
+    font-size: 12px;
+}
+
+.username {
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+
+.account-icon {
+    /*display: inline-flex;*/
+    position: absolute;
+    background-image: url("../images/account.png");
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.password {
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.password-icon {
+    /*display: inline-flex;*/
+    position: absolute;
+    background-image: url("../images/password.png");
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 70px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.autoLogin {
+    display: inline-flex;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    line-height: 10px;
+    font-size: 12px;
+}
+
+.checkbox {
+    margin-bottom: 27px;
+}
+
+.autoLogin span {
+    padding-left: 10px;
+}
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>看视频</title>
+</head>
+<body>
+<div class="video-container" th:fragment="video">
+    <div class="video-title"><span>全部视频</span>
+    </div>
+    <div class="videoDataList">
+        <div class="videoItem" th:each="video:${videoList}">
+                <a class="videoImg" th:href="@{'/videoDetail/index/'+${video.videoId}+'/1'}">
+                    <i class="praise" th:text="'豆瓣&nbsp;'+${video.score}+'分'"></i>
+                    <img th:src="${video.image}">
+                    <i class="status" th:text="${video.status}"></i>
+                </a>
+                <div class="videoTitle" th:text="${video.name}">
+                </div>
+                <div class="videoActors" th:text="${video.actors}">
+                </div>
+        </div>
+    </div>
+    <div th:replace="common/pagination :: pagination"></div>
+</div>
+</body>
+</html>

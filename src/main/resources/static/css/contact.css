@@ -1,0 +1,20 @@
+.contact-container {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.contact-title {
+    font-size:25px;
+    width: 95%;
+    padding-left: 15px;
+    background-color: #999999;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.contact-form {
+    width: 90%;
+    margin-top: 20px;
+    border: 1px solid #eeeeee;
+    padding: 15px 15px;
+}

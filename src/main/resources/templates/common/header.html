@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>看视频</title>
+    <div th:fragment="commontop">
+        <link th:href="@{/favicon.ico}" type="image/png" rel="shortcut icon"/>
+        <link th:replace="/common/bootcss :: bootcss">
+        <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    </div>
+</head>
+<body>
+<div class="container" th:fragment="commonContext">
+    <div class="common-top">
+        <a th:href="@{/index}"><img th:src="@{/images/logo.png}" class="logo"></a>
+        <div class="input-group mb-3" style="width:40%; height: 50%">
+            <label for="selectIn"></label>
+            <input type="text" class="form-control" autocomplete="off" id="selectIn" placeholder="请输入搜索关键词">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜索</button>
+            </div>
+        </div>
+        <div class="selectBox" id="selectBox">
+            <!--                <div class="selectItem" id="selectItem">-->
+            <!--                    <a href="#"><span class="selectName">柔美的细胞小将 第二季</span>-->
+            <!--                    </a><span class="selectStatus">已完结</span>-->
+            <!--                </div>-->
+        </div>
+        <script type="text/javascript" th:inline="javascript">
+            const searchInput = document.querySelector('#selectIn');
+            var selectNameHtml;
+            var selectStatusHtml;
+            var searchHtml;
+            //获取路径 http://localhost:8080/videoDetail/index/1137/1
+            var pathSName = window.location.href;
+            let split = pathSName.split("/");
+            var spath = split[0] + "//" + split[2] + "/";
+            // console.log(split);
+            // console.log(spath);
+            $("#selectIn").on('compositionend', function () {
+                $(search());
+            })
+
+            function search() {
+                var title = $("#selectIn").val();
+                $.ajax({
+                    url: [[@{/video/select
+                }
+            ]],
+                type: "post",
+                    data
+            :
+                {
+                    title:title
+                }
+            ,
+                success: function (d) {
+                    showSearch(d);
+                }
+            ,
+                error: function (e) {
+                    alert(JSON.stringify(e));
+                }
+            })
+            }
+
+            function showSearch(d) {
+                if (d.length === 0) {
+                } else {
+                    // 清空原有拼接数据
+                    searchHtml = "";
+                    console.log(d);
+                    for (var i = 0; i < d.length; i++) {
+                        selectNameHtml = "<div class='selectItem'><a href='" + spath + 'videoDetail/index/' + d[i].videoId + '/1' + "'><span class='selectName'>" + d[i].name + "</span></a>";
+                        selectStatusHtml = "<span class='selectStatus'>" + d[i].status + "</span></div>";
+                        searchHtml += selectNameHtml + selectStatusHtml;
+                        $("#selectBox").html(searchHtml);
+                    }
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $("#selectIn").blur(function () {
+                    $("#selectBox").css("display", "none")
+                    $("#selectIn").mouseenter(function () {
+                        $("#selectBox").show();
+                    })
+                });
+                $("#selectBox").mouseleave(function () {
+                    $("#selectBox").hide();
+                });
+                $("#selectIn").focus(function () {
+                    $("#selectBox").css("display", "block");
+                })
+            })
+        </script>
+        <a href="#" class="history">历史记录</a>
+        <!--            鼠标移入显示下拉框-->
+        <div class="history-box">
+            <div class="history-title">
+                <span class="play-history">播放记录</span>
+                <a href="javascript:0" class="btn-clear">[清空]</a>
+                <script type="text/javascript">
+                    $(".btn-clear").click(function () {
+                            if (confirm("你确定清空吗？")) {
+                                localStorage.clear();
+                                // 重新加载页面
+                                location.reload();
+                            }
+                        }
+                    )
+                </script>
+            </div>
+            <div class="historyList" id="historyList">
+                <div class="historyItem" id="historyItem">
+                    <!--                        <a class="history-info-title" href="#">秘密之家</a>-->
+                    <!--                        <a class="history-info-grade" href="#">第1集</a>-->
+                </div>
+            </div>
+            <script type="text/javascript">
+                let videoLength = localStorage.length;
+                var historyHtml = "";
+                //获取路径
+                var pathName = window.location.href;
+                var hsplit = pathName.split("/");
+                var abpath = hsplit[0] + "//" + hsplit[2] + "/";
+                for (i = 0; i < videoLength; i++) {
+                    temp = localStorage.key(i);
+                    if (temp.includes("videoId")) {
+                        let item = localStorage.getItem(temp);
+                        let video = JSON.parse(item);
+                        var htitle = "";
+                        var hgrade = "";
+                        // http://localhost:8080/videoDetail/index/1106
+                        // <a class="history-info-title" th:href="@{'/videoDetail/index}'+${video.videoId}">video.name</a>
+                        htitle = "<a class='history-info-title' href='" + abpath + 'videoDetail/index/' + video.videoId + "/1'" + ">" + video.name + "</a>";
+                        hgrade = "<a class='history-info-grade' th:href=\"@{\'/videoDetail/index/\'" + video.videoId + "}\">" + video.status + "</a>";
+                        historyHtml += htitle + hgrade;
+                    }
+                    $("#historyItem").html(historyHtml);
+                }
+            </script>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $(".history").hover(
+                    function () {
+                        $(".history-box").show();
+                    },
+                    function () {
+                        $(".history-box").hide();
+                    }
+                );
+                $(".history-box").hover(
+                    function () {
+                        $(".history-box").show();
+                    },
+                    function () {
+                        $(".history-box").hide();
+                    }
+                )
+            })
+        </script>
+        |
+<!--        <th:block th:if="${session.user} != null">-->
+<!--            <img th:src="${session.user.avatar}" style="width:50px; height: 50px;" class="login">-->
+<!--            <a th:href="@{/login/doLogout}" class="register">退出</a>-->
+<!--        </th:block>-->
+<!--        <th:block th:if="${session.user} == null">-->
+<!--            <a th:href="@{/login/index}" class="login">登录</a> <a th:href="@{/register/index}" class="register">注册</a>-->
+<!--        </th:block>-->
+        <a th:href="@{/login}" class="login">登录</a> <a th:href="@{/register/index}" class="register">注册</a>
+
+    </div>
+</div>
+<div class="top-nav" th:fragment="commonNav">
+    <a th:href="@{/index}">首页</a>
+    <a th:href="@{/video/index/1}">全部视频</a>
+    <a th:href="@{/rank/index}">排行榜</a>
+    <a th:href="@{/topic/index}">我的话题</a>
+    <a th:href="@{/contact/index}">联系我们</a>
+</div>
+</body>
+</html>

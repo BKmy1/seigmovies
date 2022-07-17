@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频详情</title>
+</head>
+<body>
+<div class="video-detail-container" th:fragment="videoDetail">
+    <div class="video-detail-topvideo">
+        <div class="video-detail">
+            <div id="dplayer"></div>
+            <div class="video-detail-info">
+                <div class="video-detail-top">
+                    <span class="video-title" th:text="${video.name}"></span>
+                    <span class="video-grade">第<span th:text="${videoNumber}"></span>集</span>
+                    <script type="text/javascript">
+                        window.onload = function () {
+                            let videoId = "[[${video.videoId}]]";
+                            let name = "[[${video.name}]]";
+                            let status = "[[${video.status}]]";
+                            let video = {
+                                videoId: videoId,
+                                name: name,
+                                status: status
+                            }
+                            localStorage.setItem("videoId" + videoId, JSON.stringify(video));
+                        };
+                    </script>
+                </div>
+                <div class="video-detail-des">
+                    <span>播放卡请刷新页面&nbsp;&nbsp;<a th:href="@{'/download/'+${videoNumber}} " style="color:#ff0000;">下载</a></span>
+                </div>
+                <div class="video-detail-center">
+                    <ul class="video-playlist">
+                        <li th:each="t:${#numbers.sequence(0,total-1)}">
+                            <a th:href="@{'/videoDetail/index/'+${video.videoId}+'/'+${t+1}}" th:text="${t+1}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            let videoNum = [[${videoNumber}]];
+            if (videoNum < 10) {
+                videoNum = '0' + videoNum;
+            }
+            console.log(videoNum);
+            const dp = new DPlayer({
+                container: document.getElementById('dplayer'),
+                volume: 0.9,
+                video: {
+                    // url: 'http://124.220.158.140/video/202204122328.mp4',
+                    // url: 'http://124.220.158.140/video/1101/E01.mp4',
+                    pic: "[[${video.image}]]",
+                    quality: [
+                        {
+                            name: 'HD',
+                            url: 'http://124.220.158.140/video/1101/E' + videoNum + '.mp4',
+                            // url: 'http://124.220.158.140/video/E10.mp4',
+                            type: 'hls',
+                        },
+                        {
+                            name: 'SD',
+                            // url: 'http://124.220.158.140/video/1101/E01.mp4',
+                            url: 'http://124.220.158.140/video/202204122328.mp4',
+                            type: 'normal',
+                        },
+                    ],
+                    defaultQuality: 0,
+                },
+                danmaku: {
+                    // id: '9E2E3368B56CDBB4',
+                    id:'[[${video.videoId}]]',
+                    // https://api.bilibili.com/x/v1/dm/list.so?oid=72540443
+                    // api: 'https://api.bilibili.com/x/v1/dm/list.so?oid=72540443',
+                    // api: 'https://dplayer.moerats.com/'
+                    api:'[[@{/danmuku/v2/}]]'
+                    // token: 'tokendemo',
+                    // maximum: 1000,
+                    // addition: ['https://127.0.0.1:8080/dplayer/v3/bilibili?aid=4157142'],
+                    // user: 'DIYgod',
+                    // bottom: '15%',
+                    // unlimited: true,
+                }
+            });
+            // id:视频id
+            // dp.danmaku.send(
+            //     {
+            //         author: 'zhansan',
+            //         id: '1108',
+            //         time: 12.000,
+            //         text: '目前弹幕为空，请发送弹幕',
+            //         color: 16777215,
+            //         type: 0,
+            //     },
+            //     function () {
+            //         console.log("发送弹幕成功");
+            //     }
+            // )
+        </script>
+    </div>
+    <!--    视频页下面的视频详情-->
+    <div class="video-detail-video">
+        <div class="video-description">
+            <div class="video-title-video">
+                <span class="videoname" th:text="${video.name}+'剧情介绍'"></span>
+            </div>
+            <div>
+                <span class="vdescription" th:text="${video.description}">
+                </span>
+                <a class="vdetail" href="javascript:open('vdescription')">详情&nbsp;v</a>
+                <script type="text/javascript">
+                    function open(param) {
+                        p = "." + param.toString();
+                        $(p).css('width', '100%');
+                        $(p).css('white-space', 'normal');
+                        $('.vdetail').css('display', 'none');
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

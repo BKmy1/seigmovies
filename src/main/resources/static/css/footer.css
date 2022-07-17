@@ -1,0 +1,36 @@
+.footer-container {
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 90px;
+    line-height: 40px;
+}
+
+.footerDataList {
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.footerDataList a {
+    margin-left: 20px;
+}
+
+.line {
+    border: 2px solid #e12160;
+}
+
+.footer-info {
+    color: #666666;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-info div {
+    padding-top: 20px;
+}

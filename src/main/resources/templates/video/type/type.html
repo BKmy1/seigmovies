@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="video-container" th:fragment="type">
+    <div class="video-title"><span>全部视频</span>
+    </div>
+    <div class="videoDataList">
+        <div class="videoItem" th:each="typeList:${videoListTypeAndTime}">
+            <a class="videoImg" th:href="@{'/videoDetail/index/'+${typeList.videoId}+'/1'}">
+                <i class="praise" th:text="'豆瓣&nbsp;'+${typeList.score}+'分'"></i>
+                <img th:src="${typeList.image}">
+                <i class="status" th:text="${typeList.status}"></i>
+            </a>
+            <div class="videoTitle" th:text="${typeList.name}">
+            </div>
+            <div class="videoActors" th:text="${typeList.actors}">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

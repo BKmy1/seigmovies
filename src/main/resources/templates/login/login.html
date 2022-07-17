@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+<div class="login-container" th:fragment="login">
+    <div class="login-form">
+        <div class="login-form-title">登录看视频</div>
+        <form class="login-form-box" method="post" th:action="@{/login/doLogin}">
+            <i class="account-icon"></i><input type="text" name="username" class="username" placeholder="请输入用户名">
+            <i class="password-icon"></i><input type="password" name="password" class="password" placeholder="请输入密码">
+            <span class="autoLogin">
+                <input type="checkbox" name="autologin" onclick="check()" class="checkbox"/>
+                <input type="hidden" id="checkStatus" name="checkStatus" value="0"/>
+                <span>下次自动登录</span>
+            </span>
+            <script type="text/javascript">
+                function check() {
+                    if ($(".checkbox").is(":checked")){
+                        $("#checkStatus").val("1");
+                    }else{
+                        $("#checkStatus").val("2");
+                    }
+                }
+            </script>
+            <button type="submit" class="btn btn-primary">登录</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

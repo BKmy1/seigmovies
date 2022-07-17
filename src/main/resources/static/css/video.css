@@ -1,0 +1,92 @@
+.video-container {
+    margin-top: 20px;
+    padding-left: 80px;
+}
+
+.video-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/*form {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    display: none;*/
+/*    width: 100%;*/
+/*}*/
+
+.videoDataList {
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-around;*/
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.videoItem {
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+}
+
+.videoImg {
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    width: 200px;
+    height: 240px;
+    transition: all ease-out .35s;
+}
+
+.videoImg:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.videoImg .praise {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #ffffff;
+    background-color: #322925;
+    border: 1px solid #322925;
+    opacity: 0.9;
+}
+
+.videoImg .status {
+    position: absolute;
+    color: #ffffff;
+    margin-left: -40px;
+    margin-bottom: 10px;
+    background-color: #322925;
+    border: 1px solid #322925;
+    opacity: 0.9;
+    bottom: 0;
+}
+
+.videoImg img {
+    width: 80%;
+    height: 100%;
+    border-radius: 5%;
+}
+
+.videoTitle {
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: bold;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.videoActors {
+    width: 180px;
+    font-size: 12px;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

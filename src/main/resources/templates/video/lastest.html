@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>最近更新</title>
+</head>
+<body>
+    <div class="lastest-container" th:fragment="lastest">
+        <div class="lastest-title"><span>最近更新</span>
+            <a th:href="@{/video/index/1}" style="font-size:15px;float:right;margin-right: 55px;margin-bottom:-10px;color:#9ea4a9">更多>></a>
+        </div>
+        <div class="lastestDataList">
+            <div class="lastestItem" th:each="lastvideo:${lastestList}">
+                <a th:href="@{'/videoDetail/index/'+${lastvideo.videoId}+'/1'}" class="lastestImg">
+                    <i class="praise" th:text="'豆瓣&nbsp;'+${lastvideo.score}+'分'"></i>
+                    <img th:src="${lastvideo.image}">
+                    <i class="status" th:text="${lastvideo.status}"></i>
+                </a>
+                <div class="lastestTitle" th:text="${lastvideo.name}">
+                </div>
+                <div class="lastestActors" th:text="${lastvideo.actors}">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

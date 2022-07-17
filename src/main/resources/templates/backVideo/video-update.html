@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" th:href="@{/css/font.css}">
+    <link rel="stylesheet" th:href="@{/css/xadmin.css}">
+    <script type="text/javascript" th:src="@{/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{/javascript/xadmin.js}"></script>
+    <script type="text/javascript" th:src="@{/javascript/xadmin1.js}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script th:src="@{https://cdn.staticfile.org/html5shiv/r29/html5.min.js}"></script>
+    <script th:src="@{https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]--></head>
+
+<body>
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>ID
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="id" name="id" th:value="${vi.id}" onfocus=this.blur()
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    <span class="x-red">*</span>无法修改
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>姓名
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="name" name="name" th:value="${vi.name}"
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    <span class="x-red">*</span>姓名
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>描述
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="description" name="description" th:value="${vi.description}"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>发布时间
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="publishTime" name="publishTime" th:value="${vi.publishTime}"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>导演
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="director" name="director" th:value="${vi.director}"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>标签
+                </label>
+                <div class="layui-input-inline">
+                    <select id="tags" name="tags" class="valid">
+                        <option value="爱情" th:selected="${vi.tags=='爱情'}">爱情</option>
+                        <option value="剧情" th:selected="${vi.tags=='剧情'}">剧情</option>
+                        <option value="惊悚" th:selected="${vi.tags=='惊悚'}">惊悚</option>
+                        <option value="喜剧" th:selected="${vi.tags=='喜剧'}">喜剧</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>演员
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="actors" name="actors" th:value="${vi.actors}"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="update" lay-submit>
+                    修改
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    layui.use(['form', 'layer'], function () {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+
+
+        //监听提交
+        form.on('submit(update)',
+            function (data) {
+                $.ajax({
+                    url: '/backVideo/updateVideo',
+                    method: "POST",
+                    data: data.field,
+                    success: function (res) {
+
+                        layer.alert("修改成功", {
+                                icon: 6
+                            },
+                            function () {
+                                //关闭当前frame
+                                x_admin_close();
+                                xadmin.father_reload();
+                            });
+                    },
+                    error: function (error) {
+                        alert("出现异常！")
+                    }
+                })
+                return false;
+            });
+
+    });
+</script>
+
+</body>
+
+</html>

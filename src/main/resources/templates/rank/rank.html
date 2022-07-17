@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+</head>
+<body>
+    <div class="rank-container" th:fragment="rank">
+        <div class="rank-week">
+            <div class="rank-week-title">
+                <span class="week">周排行榜</span>
+                <a href="#" class="more">更多&nbsp;></a>
+            </div>
+            <div class="weekDataList">
+                <ul class="weekItem">
+                    <li th:each="weekList,w:${weekList}">
+                        <span class="sort" th:text="${w.index+1}"></span>
+                        <a th:href="@{'/videoDetail/index/'+${weekList.videoId}+'/1'}">
+                            <span class="name" th:text="${weekList.name}"></span>
+                            <span class="status"th:text="${weekList.status}"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rank-month">
+            <div class="rank-month-title">
+                <span class="month">月排行榜</span>
+                <a href="#" class="more">更多&nbsp;></a>
+            </div>
+            <div class="monthDataList">
+                <ul class="monthItem">
+                    <li th:each="monthList,m:${monthList}">
+                        <span class="sort" th:text="${m.index+1}"></span>
+                        <a th:href="@{'/videoDetail/index/'+${monthList.videoId}+'/1'}"><span class="name" th:text="${monthList.name}"></span>
+                            <span class="status" th:text="${monthList.status}"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rank-year">
+            <div class="rank-year-title">
+                <span class="year">年排行榜</span>
+                <a href="#" class="more">更多&nbsp;></a>
+            </div>
+            <div class="yearDataList">
+                <ul class="yearItem">
+                    <li th:each="yearList,y:${yearList}">
+                        <span class="sort" th:text="${y.index+1}"></span>
+                        <a th:href="@{'/videoDetail/index/'+${yearList.videoId}+'/1'}">
+                            <span class="name" th:text="${yearList.name}"></span>
+                            <span class="status" th:text="${yearList.status}"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

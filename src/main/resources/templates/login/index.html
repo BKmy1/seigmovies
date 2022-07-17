@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>看视频</title>
+    <div th:replace="common/header :: commontop"></div>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" th:href="@{/css/footer.css}"/>
+    <div th:replace="common/bootjs :: bootjs"></div>
+</head>
+<body>
+<!--头部公共部分-->
+<div th:replace="common/header :: commonContext"></div>
+<div th:replace="common/header :: commonNav"></div>
+<!--中间部分代码-->
+<div th:replace="login/login :: login"></div>
+<!--页脚部分-->
+<div th:replace="common/footer :: footer"></div>
+</body>
+</html>

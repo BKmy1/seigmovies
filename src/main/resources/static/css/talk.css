@@ -1,0 +1,14 @@
+.talk-container {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.talk-info-title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#vcomments {
+    width: 80%;
+    margin-top: 20px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="talk-container" th:fragment="talk">
+        <div class="talk-info-box">
+            <div class="talk-info-title">
+                评论
+            </div>
+            <div id="vcomments"></div>
+            <script type="text/javascript">
+                const va = new Valine({
+                    el: '#vcomments',
+                    appId: 'nUpqqwUDpnDLwBjhOCmU4SLD-gzGzoHsz',
+                    appKey: 'l57UPDtgbe9JbuGl3mwRNd2W',
+                    path: "[[${video.videoId}]]",
+                    requiredFields:['nick','mail']
+                    // serverURLs:"[[${video.videoId}]]"
+                    // meta:['nick','mail','link']
+                })
+                // console.log(va);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

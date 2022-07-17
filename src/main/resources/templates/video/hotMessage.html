@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>热门资讯</title>
+</head>
+<body>
+<div class="hot-messsage-container" th:fragment="hotMessage">
+    <div class="hot-messsage-title">热门资讯</div>
+    <div class="messageDataList">
+        <div class="hot-messsage-left">
+            <div class="messageItem" th:each="msg:${hotMessagesL}">
+                <a th:href="${msg.url}" th:text="${msg.title}">无</a>
+                <span class="publishTime" th:text="${msg.publish}"></span>
+            </div>
+        </div>
+        <div class="hot-messsage-right">
+            <div class="messageItem" th:each="ms:${hotMessagesR}">
+                <a th:href="${ms.url}" th:text="${ms.title}">无</a>
+                <span class="publishTime" th:text="${ms.publish}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

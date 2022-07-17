@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>热门推荐</title>
+</head>
+<body>
+    <div class="recommend-container" th:fragment="hotRecommend">
+        <div class="hot-recommend-title"><span>热门推荐</span>
+            <a th:href="@{/video/index/1}" style="font-size:15px;float:right;margin-right: 55px;margin-bottom:-10px;color:#9ea4a9">更多>></a>
+        </div>
+        <div class="recommendDataList">
+            <div class="recommendItem" th:each="hotVideo:${hotVideoList}">
+                <a th:href="@{'/videoDetail/index/'+${hotVideo.videoId}+'/1'}" class="recommendImg">
+                    <i class="praise" th:text="'豆瓣&nbsp;'+${hotVideo.score}+'分'"></i>
+                    <img th:src="${hotVideo.image}">
+                    <i class="status" th:text="${hotVideo.status}"></i>
+                </a>
+                <div class="recommendTitle" th:text="${hotVideo.name}">
+                </div>
+                <div class="recommendActors" th:text="${hotVideo.actors}">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

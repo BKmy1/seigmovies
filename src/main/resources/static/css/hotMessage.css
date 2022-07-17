@@ -1,0 +1,49 @@
+.hot-messsage-container {
+    margin-top: 20px;
+    padding-left: 80px;
+}
+
+.hot-messsage-title {
+    width:98%;
+    font-size: 20px;
+    line-height: 50px;
+    font-weight: bold;
+    padding-left: 20px;
+    background-color: #ececec;
+}
+
+.messageDataList {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid #dddddd;
+    width: 98%;
+    margin-bottom: 20px;
+}
+
+.hot-messsage-left {
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+}
+
+.messageItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 16px;
+}
+
+.messageItem a {
+    width: 400px;
+    margin-left: -40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.publishTime {
+    font-size: 18px;
+    margin-left: 60px;
+}

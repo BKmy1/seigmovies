@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>热门标签</title>
+</head>
+<body>
+<div class="hot-tags-container" th:fragment="tags">
+    <div class="hot-tags-title">
+        <span class="title">热门标签</span>
+        <a class="packup" href="javascript:closeDiv('hot-tags-years','hot-tags-type')">收起&nbsp;^</a>
+        <a class="packon" href="javascript:openDiv('hot-tags-years','hot-tags-type')">打开&nbsp;v</a>
+    </div>
+    <script type="text/javascript">
+        function closeDiv(param, param2) {
+            var p1 = "." + param.toString();
+            var p2 = "." + param2.toString();
+            $(p1).css('display', 'none');
+            $(p2).css('display', 'none');
+            $(".packup").css('display', 'none');
+            $(".packon").css("display", "block");
+        }
+
+        function openDiv(param, param2) {
+            var p1 = "." + param.toString();
+            var p2 = "." + param2.toString();
+            $(p1).css('display', 'inline-block')
+            $(p2).css('display', 'inline-block')
+            $(".packon").css('display', 'none');
+            $(".packup").css("display", "block");
+        }
+    </script>
+    <div class="hot-tags-years">
+        <ul class="hot-tags-year-info">
+            <li><span class="years">年份</span></li>
+            <li th:each="year:${videoTimeList}">
+                <span th:if="${time} eq ${year.time}">
+                    <a th:href="@{'/video/time/index/'+${year.time}}" style="color: #ff0000;"
+                       th:text="${year.time}">无</a>
+                </span>
+                <span th:if="${time} != ${year.time}">
+                    <a th:href="@{'/video/time/index/'+${year.time}}" th:text="${year.time}">无</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="hot-tags-type">
+        <ul class="hot-tags-type-info">
+            <li><span class="types">类型</span></li>
+            <li th:each="type:${videoTypesList}">
+                <span th:if="${dtype} eq ${type.type}">
+                    <a th:href="@{'/video/type/index/'+${type.type}}" style="color: #ff0000;" th:text="${type.type}">无</a>
+                </span>
+                <span th:if="${dtype} != ${type.type}">
+                    <a th:href="@{'/video/type/index/'+${type.type}}" th:text="${type.type}">无</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

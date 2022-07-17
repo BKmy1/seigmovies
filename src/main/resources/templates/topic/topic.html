@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的话题</title>
+</head>
+<body>
+<div class="topic-tags-container" th:fragment="topic">
+    <div class="topic-tags-title">
+        <span class="title">我参与的话题</span>
+    </div>
+    <div class="topic-tags-bigbox">
+        <div class="topic-left-box">
+            <div class="topic-title"><img th:src="@{/images/message.png}" alt=""><span>消息中心</span></div>
+            <div class="topicList">
+                <div class="topicType">
+                    <ul>
+                        <li><a href="javascript:switchDiv('topicToMe')"  class="replyMe">发布的评论</a></li>
+                        <li><a href="javascript:switchDiv('topicMeTo')"  class="reply">回复的评论</a></li>
+<!--                        <li><a href="javascript:switchDiv('topiceMessage')" class="myMessage">所有消息</a></li>-->
+<!--                        <li><a href="javascript:switchDiv('topicSystem')" class="notice">系统通知</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="topic-right-box">
+            <!-- 回复我的 -->
+            <div class="topicToMe">
+                <div class="topicItem" th:each="chatDetailList:${chatDetailList}" >
+                    <div class="topicAvatar">
+                        <img th:src="@{/images/avatar.png}" class="avatar" src="">
+                    </div>
+                    <div class="topicInfo">
+                        <div class="desInfo"><span class="username" th:text="${chatDetailList.userId}"></span>&nbsp;&nbsp;&nbsp;<span class="des">发布了评论</span></div>
+                        <a class="reply" th:href="@{/videoDetail/index/}+${chatDetailList.videoId}+'/1'" th:text="${chatDetailList.content}"></a>
+                        <div class="replyTime" th:text="${chatDetailList.createTime}"></div>
+                    </div>
+                    <div class="topicVideo">
+                        <a th:href="@{/videoDetail/index/}+${chatDetailList.videoId}+'/1'">
+                            <img th:src="${chatDetailList.image}" class="videoImg">
+                        </a>
+                    </div>
+                </div>
+                <!--分页条部分-->
+<!--                <div th:replace="common/pagination :: pagination"></div>-->
+            </div>
+            <!-- 我回复的 -->
+            <div class="topicMeTo">
+                <div class="topicItem" th:each="pidList:${chatPidDetailList}">
+                    <div class="topicAvatar">
+                        <img th:src="@{/images/avatar.png}" class="avatar" src="">
+                    </div>
+                    <div class="topicInfo">
+                        <div><span class="des" th:text="${pidList.userId}">回复了评论</span></div>
+                        <a class="reply" th:href="@{/videoDetail/index/}+${pidList.videoId}+'/1'" th:text="${pidList.content}"></a>
+                        <div class="replyTime" th:text="${pidList.createTime}"></div>
+                    </div>
+                    <div class="topicVideo">
+                        <a th:href="@{/videoDetail/index/}+${pidList.videoId}+'/1'">
+                            <img th:src="${pidList.image}" class="videoImg">
+                        </a>
+                    </div>
+                </div>
+                <!--分页条部分-->
+<!--                <div th:replace="common/pagination :: pagination"></div>-->
+            </div>
+            <!-- 我的消息 -->
+            <div  class="topiceMessage">
+                <div class="messageItem">
+                    <a class="username" href="#">张三回复了我</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">我回复了张三</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">我回复了张三</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">张三回复了我</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">张三回复了我</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">张三回复了我</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">我回复了张三</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">我回复了张三</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <div class="messageItem">
+                    <a class="username" href="#">张三回复了我</a>
+                    <div class="replyTime">2021-01-15 11:52</div>
+                </div>
+                <!--分页条部分-->
+<!--                <div th:replace="common/pagination :: pagination"></div>-->
+            </div>
+            <!-- 系统通知 -->
+            <div  class="topicSystem">
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <div class="systemItem">
+                    <div>
+                        <span class="systemdes">系统通知</span><span class="publishTime">2021-10-25 10:25</span>
+                    </div>
+                    <div class="content">
+                        <a href="#">你获得了一次可领取额外奖励的机会。截止2022年06月29日 10:11前，快来完成你的限时挑战吧</a>
+                    </div>
+                </div>
+                <!--分页条部分-->
+<!--                <div th:replace="common/pagination :: pagination"></div>-->
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let temp = "1";
+        function switchDiv(classname) {
+            let t = "."+classname.toString();
+            $(function () {
+                if (temp === "1"){
+                    temp = t;
+                    $(t).show();
+                }else {
+                    $(temp).hide();
+                    temp = t;
+                    $(t).show();
+                }
+            })
+        }
+    </script>
+</div>
+</body>
+</html>

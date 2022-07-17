@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>精品推荐</title>
+</head>
+<body>
+    <div class="best-container" th:fragment="best">
+        <div class="best-title"><span>精品推荐</span>
+            <a th:href="@{/video/index/1}" style="font-size:15px;float:right;margin-right: 55px;margin-bottom:-10px;color:#9ea4a9">更多>></a>
+        </div>
+        <div class="bestDataList">
+            <div class="bestItem" th:each="bestVideo:${bestVideoList}">
+                <a th:href="@{'/videoDetail/index/'+${bestVideo.videoId}+'/1'}" class="bestImg">
+                    <i class="praise" th:text="'豆瓣&nbsp;'+${bestVideo.score}+'分'"></i>
+                    <img th:src="${bestVideo.image}">
+                    <i class="status" th:text="${bestVideo.status}"></i>
+                </a>
+                <div class="bestTitle" th:text="${bestVideo.name}">
+                </div>
+                <div class="bestActors" th:text="${bestVideo.actors}">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
