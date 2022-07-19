@@ -18,9 +18,9 @@ import java.util.*;
 
 public class LCOUtil {
 
-    public static final String appId = "nUpqqwUDpnDLwBjhOCmU4SLD-gzGzoHsz";
-    public static final String appKey = "l57UPDtgbe9JbuGl3mwRNd2W";
-    public static final String serverUrl = "https://nupqqwud.lc-cn-n1-shared.com";
+    public static final String appId = "";
+    public static final String appKey = "";
+    public static final String serverUrl = "";
     // 评论第一次插入
     private boolean isCFirst = true;
     // 评论详情第一次插入
