@@ -36,7 +36,7 @@ public class qUtils {
 
         //2.【将文件上传到腾讯云】
         // 指定文件将要存放的存储桶
-        String bucketName = "my-1307819959";
+        String bucketName = "";
         // 指定文件上传到 COS 上的路径，即对象键。例如对象键为folder/picture.jpg，则表示将文件 picture.jpg 上传到 folder 路径下
         // 指定腾讯云的上传文件路径
         String originPath = "image/";
