@@ -1,8 +1,10 @@
 package com.example.seigmovies.controller;
 
 import com.example.seigmovies.entity.ChatDetail;
+import com.example.seigmovies.entity.Danmuku;
 import com.example.seigmovies.entity.PageQo;
 import com.example.seigmovies.entity.Video;
+import com.example.seigmovies.service.DanmuKuService;
 import com.example.seigmovies.service.TopicService;
 import com.example.seigmovies.service.VideoService;
 import com.example.seigmovies.utils.LCOUtil;
@@ -33,6 +35,9 @@ public class BackVideoController {
     @Autowired
     private TopicService topicService;
 
+    @Autowired
+    private DanmuKuService danmuKuService;
+
     @GetMapping("/videoList")
     public String stuList(Model model, PageQo pageQo) {
         if (pageQo.getCurrentPage() == null) {
@@ -55,6 +60,16 @@ public class BackVideoController {
         return "backVideo/talk-list";
     }
 
+    @RequestMapping("/danmuList")
+    public String danmuList(Model model, PageQo pageQo){
+        if (pageQo.getCurrentPage() == null){
+            pageQo.setCurrentPage(1);
+        }
+        PageInfo<Danmuku> danmus = danmuKuService.selectAll(pageQo);
+        model.addAttribute("pageQo",pageQo);
+        model.addAttribute("danmus",danmus);
+        return "backVideo/danmu-list";
+    }
 
     @GetMapping("/add")
     public String toAdd(@ModelAttribute(value = "video") Video video) {

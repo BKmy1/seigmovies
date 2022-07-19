@@ -20,6 +20,8 @@
 >
 > 评论系统：LeanCloud
 >
+> 导出功能：easyexcel
+>
 > 视频播放器：DPlayer2 |  [Powerful danmaku video player | NPlayer](https://nplayer.js.org/)(可以尝试一下)
 
 
@@ -191,6 +193,21 @@ https://blog.csdn.net/weixin_30262255/article/details/96369868
 
 https://blog.csdn.net/arick112/article/details/107865210
 
+### 后台页面
+
+> 后台整体框架基于X-admin下
+
+- backVideo
+  - index 首页
+  - talk-list  评论数据分页
+  - video-list  视频数据分页
+  - welcome  欢迎页面(x-admin自带页面)
+- 导出功能
+  - https://www.cnblogs.com/honggege/p/15993756.html
+  - https://blog.csdn.net/royal1235/article/details/123169529
+  - https://www.codenong.com/cs110833648/
+
+
 ## 数据库设计
 
 > 用户表，权限表，视频表，视频详情表，评论表，
@@ -225,4 +242,7 @@ select t.videoId from tb_video t WHERE locate("剧情", t.tags) (locate("剧情"
 
 - th:text无效，无法显示数据
   - 尽量数据库中表的字段名不要与css样式出现重名
-
+- springsecurity不起作用
+  - 不允许数据库中存在字段名相同，否则识别不到权限。
+- thymeleaf使用EasyExcel出现getOutputStream() has already been called for this response
+  - [Springboot thymeleaf 异常：getOutputStream() has already been called for this response 解决 - Java天堂 (javatt.com)](https://www.javatt.com/p/134895)

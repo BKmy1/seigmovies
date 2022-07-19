@@ -28,7 +28,14 @@ public class DanMuCustomer {
         try {
             if (danmuKuService.addDanmu(danmuku) == 1) {
                 // 通知 MQ 消息已被接收，可以ACK（从队列中删除）了
+                // Shutdown Signal: channel error; protocol method:
+                // #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - unknown delivery tag 1, class-id=60, method-id=80)
+                // 手动ack
                 channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+                // 重新放入队列
+//                channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,true);
+                // 抛弃此条消息
+//                channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,false);
             } else {
                 log.error("弹幕入库失败：参数：" + danmuku.toString());
             }

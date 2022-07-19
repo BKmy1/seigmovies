@@ -12,8 +12,6 @@ import java.util.List;
 @Mapper
 public interface TopicMapper {
 
-    @Select("select * from tb_chat_detail")
-    public PageInfo<ChatDetail> queryAll(PageQo pageQo);
 
     @Select("select * from tb_chat_detail")
     public List<ChatDetail> selectAll();

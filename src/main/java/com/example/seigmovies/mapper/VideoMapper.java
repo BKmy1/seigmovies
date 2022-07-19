@@ -20,9 +20,6 @@ public interface VideoMapper {
     @Select("select * from tb_video")
     public List<Video> getVideoList();
 
-    @Select("select * from tb_video")
-    public PageInfo<Video> queryAll(PageQo pageQo);
-
     // 搜索视频  按照标题和演员搜索
 //    @Select("select * from tb_video v where v.name like concat(#{title},'%','%')" +
 //            " or v.name like concat( '%',#{title}, '%')" +

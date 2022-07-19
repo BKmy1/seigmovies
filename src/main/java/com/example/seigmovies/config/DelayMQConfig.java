@@ -1,9 +1,6 @@
 package com.example.seigmovies.config;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.CustomExchange;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -36,4 +33,5 @@ public class DelayMQConfig {
     public Binding delayBinding(Queue delayQ,CustomExchange delayE){
         return BindingBuilder.bind(delayQ).to(delayE).with(DELAY_ROUTING_KEY).noargs();
     }
+
 }

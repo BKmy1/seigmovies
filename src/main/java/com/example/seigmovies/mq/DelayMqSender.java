@@ -33,8 +33,9 @@ public class DelayMqSender {
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         log.info("延时队列发送消息，延迟："+times/1000+"秒 执行，接收参数为："+danmuku.toString()+"\n"+"=======>发送时间："+date.format(new Date()));
         // convertSendAndReceive同步消费者，convertAndSend立刻发送消息不会等待
-        rabbitTemplate.convertSendAndReceive(
+        rabbitTemplate.convertAndSend(
                 DelayMQConfig.DELAY_EXCHANGE,
+                DelayMQConfig.DELAY_ROUTING_KEY,
                 danmuku,
                 message -> {
                     // 注意这里时间可以用long，而且是设置header

@@ -13,6 +13,9 @@ public interface DanmuKuMapper {
     @Select("select * from tb_danmu where videoId = #{videoId} limit #{max}")
     public List<Danmuku> getDanmuByVid(String videoId, int max);
 
+    @Select("select * from tb_danmu")
+    public List<Danmuku> selectAll();
+
     @Insert("insert into tb_danmu (time,type,colorTen,color,author,text,videoId) " +
             "Values(#{time},#{type},#{colorTen},#{color},#{author},#{text},#{videoId})")
     public int addDanmu(Danmuku danmuku);

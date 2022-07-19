@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 1、自定义用户访问控制
         http.authorizeRequests()
                 .antMatchers("/**", "/css/**", "/fonts/**", "/images/**", "/login/**").permitAll()
-                .antMatchers("/js/**", "/lib/layui/**").permitAll()
+                .antMatchers("/js/**", "/lib/layui/**","/*.css").permitAll()
                 .antMatchers("/backTalk/**", "/backVideo/**").hasRole("admin")
                 .anyRequest().authenticated()
                 .and()
